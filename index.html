@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html> <!-- Оголошення типу документа HTML5 -->
+<html lang="uk"> <!-- Початок документа, мова українська -->
+<head>
+    <!-- Кодування символів для коректного відображення тексту -->
+    <meta charset="UTF-8">
+    <!-- Налаштування viewport для адаптивного дизайну -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Заголовок сторінки у вкладці браузера -->
+    <title>Форми авторизації та реєстрації</title>
+
+    <!-- Підключення зовнішнього CSS файлу зі стилями -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Підключення бібліотеки іконок FontAwesome для іконок (наприклад, око для пароля) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Навігаційна панель сайту -->
+<nav class="navbar">
+    <div class="block-wrapper navbar-content">
+        <!-- Контейнер для логотипу або тексту -->
+        <div class="logo-container">
+            <span class="variant-text">variant 5</span> <!-- Текст логотипу або назви варіанту -->
+        </div>
+        <!-- Заголовок лабораторної роботи -->
+        <h1 class="lab-number">lab 9</h1>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <!-- Контейнер з кнопками для перемикання між формами авторизації і реєстрації -->
+        <div class="tabs">
+            <!-- Кнопка вкладки Авторизація (активна за замовчуванням) -->
+            <button class="tab-button active" data-tab="login">Авторизація</button>
+            <!-- Кнопка вкладки Реєстрація -->
+            <button class="tab-button" data-tab="register">Реєстрація</button>
+        </div>
+
+        <!-- Блок форми Авторизації, видимий за замовчуванням -->
+        <div class="tab-content active" id="login">
+            <form id="loginForm" class="form" novalidate>
+                <h2>Увійти в акаунт</h2>
+
+                <!-- Поле для вводу імені користувача -->
+                <div class="form-group">
+                    <label for="loginUsername">Ім'я користувача</label>
+                    <input type="text" id="loginUsername" name="username" required>
+                    <span class="error-message"></span> <!-- Поле для виводу повідомлень про помилки -->
+                </div>
+
+                <!-- Поле для вводу пароля з іконкою "око" для показу/приховування -->
+                <div class="form-group password-container">
+                    <label for="loginPassword">Пароль</label>
+                    <input type="password" id="loginPassword" name="password" required minlength="6">
+                    <i class="fas fa-eye password-toggle"></i> <!-- Іконка для переключення видимості пароля -->
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Чекбокс "Запам'ятати мене" -->
+                <div class="form-group remember">
+                    <input type="checkbox" id="rememberMe" name="rememberMe">
+                    <label for="rememberMe">Запам'ятати мене</label>
+                </div>
+
+                <!-- Кнопка відправки форми авторизації -->
+                <button type="submit" class="submit-btn">Увійти</button>
+            </form>
+        </div>
+
+        <!-- Блок форми Реєстрації, спочатку прихований -->
+        <div class="tab-content" id="register">
+            <form id="registerForm" class="form" novalidate>
+                <h2>Створити акаунт</h2>
+
+                <!-- Поле вводу імені -->
+                <div class="form-group">
+                    <label for="firstName">Ім'я*</label>
+                    <input type="text" id="firstName" name="firstName" required minlength="3" maxlength="15">
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Поле вводу прізвища -->
+                <div class="form-group">
+                    <label for="lastName">Прізвище*</label>
+                    <input type="text" id="lastName" name="lastName" required minlength="3" maxlength="15">
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Поле вводу Email -->
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Поле вводу пароля з іконкою показу/приховування -->
+                <div class="form-group password-container">
+                    <label for="password">Пароль*</label>
+                    <input type="password" id="password" name="password" required minlength="6">
+                    <i class="fas fa-eye password-toggle"></i>
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Поле підтвердження пароля з іконкою -->
+                <div class="form-group password-container">
+                    <label for="confirmPassword">Підтвердіть пароль*</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <i class="fas fa-eye password-toggle"></i>
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Поле вводу телефону -->
+                <div class="form-group">
+                    <label for="phone">Телефон*</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+380XXXXXXXXX">
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Поле вводу дати народження -->
+                <div class="form-group">
+                    <label for="birthDate">Дата народження*</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Група радіокнопок для вибору гендеру -->
+                <div class="form-group">
+                    <label>Гендер*</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="sex" value="male" required>
+                        <label for="male">Чоловіча</label>
+                        <input type="radio" id="female" name="sex" value="female">
+                        <label for="female">Жіноча</label>
+                    </div>
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Випадаючий список вибору країни -->
+                <div class="form-group">
+                    <label for="country">Країна*</label>
+                    <select id="country" name="country" required>
+                        <option value="">Виберіть країну</option>
+                        <option value="Ukraine">Україна</option>
+                        <option value="Poland">Польща</option>
+                        <option value="Germany">Німеччина</option>
+                    </select>
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Випадаючий список вибору міста (спочатку вимкнений) -->
+                <div class="form-group">
+                    <label for="city">Місто*</label>
+                    <select id="city" name="city" required disabled>
+                        <option value="">Виберіть місто</option>
+                    </select>
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Чекбокс прийняття умов використання -->
+                <div class="form-group remember">
+                    <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
+                    <label for="acceptTerms">Погодитися з умовами</label>
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Кнопка відправки форми реєстрації -->
+                <button type="submit" class="submit-btn">Зареєструватися</button>
+            </form>
+        </div>
+
+        <!-- Повідомлення про успішну дію -->
+        <div id="successMessage" class="success-message">
+            <i class="fas fa-check-circle"></i> <!-- Іконка успішної операції -->
+            <p>Успішно!</p>
+        </div>
+    </div>
+</main>
+
+<!-- Підключення основного JavaScript файлу -->
+<script src="script.js"></script>
+
+</body>
+</html>
